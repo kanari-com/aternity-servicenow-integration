@@ -27,4 +27,4 @@ service_now_event_template = {
 
 def push_servicenow_event(service_now_event_template_json):
   r = requests.post(config.SERVICE_NOW_EVENT_URL, auth=(config.SERVICENOW_USER, config.SERVICENOW_PW), json=service_now_event_template_json)
-  print('Service Now Output' ,r.json())
+  logging.info(f'Pushed SNOW Event: {r.json()}')
