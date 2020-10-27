@@ -10,6 +10,7 @@ from __app__.shared_code import servicenow
 #pushing incoming aternity incident data as snow events
 def push_aternity_incidents_to_snow_events(aternity_incident_data):
     incident_data_df =  json_normalize(aternity_incident_data ['value'])
+    incident_data_df = incident_data_df.drop_duplicates()
     
     if incident_data_df.empty:
         logging.info(f'No Incident Reported in last 5 minutes in Aternity: {incident_data_df}')
