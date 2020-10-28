@@ -1,5 +1,6 @@
 from __app__.shared_code import config
 import requests
+import logging
 
 service_now_event_template = {
     "records": [{
